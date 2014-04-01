@@ -10,6 +10,7 @@ install:
   - echo clientPort=2181 >> build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
   - build/zk/tmp/zookeeper-3.4.6/bin/zkServer.sh start
 
+
 env:
   global:
     - secure: "fs9J6binA1FzPQ112PSFjF2HUXts8u1slqofzRLRU1dInoGopyIG7jwNOafrxuSl4Ae+RXNIqd3ySl8uq4RDBysIU4jhbN+i6WP5dce1OvoverkXGufrzGAuSPus7InJuZ9s1Tk/jGnAdgKaaoAO/fDE5/nHgifrhFlvuNLMBJU="
