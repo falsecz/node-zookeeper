@@ -1,6 +1,6 @@
 {
-   "name": "zookeeper"
-  ,"description": "apache zookeeper client (zookeeper async API >= 3.4.0)"
+   "name": "zookeeper-binary"
+  ,"description": "apache zookeeper client with binary packages (zookeeper async API >= 3.4.0)"
   ,"version": "3.4.6-0"
   ,"author": "Yuri Finkelstein <yurif2003@yahoo.com>"
   ,"contributors": [
@@ -14,21 +14,29 @@
   ]
   ,"repository": {
       "type": "git"
-      ,"url": "https://github.com/yfinkelstein/node-zookeeper"
+      ,"url": "https://github.com/falsecz/node-zookeeper"
   }
   ,"keywords": ["apache", "zookeeper", "client"]
   ,"dependencies": {
     "async": "~0.2.6"
     ,"underscore": "*"
+    ,"node-pre-gyp": "0.5.x"
   }
   ,"devDependencies": {
     "log4js": "~0.6.0"
     ,"webworker": ">=0.8.4"
   }
   ,"main": "lib/index"
+
+  ,"binary": {
+       "module_name": "zookeeper",
+       "module_path": "./build/Release/",
+       "host": "https://falsecz-npm.s3.amazonaws.com"
+   }
   ,"scripts" : {
-     "build" : "node-gyp configure build"
-     ,"test" : "pushd test; ./test; popd"
+     "Xbuild" : "node-gyp configure build",
+       "install": "node-pre-gyp install --fallback-to-build"
+     ,"test" : "bash -c \"pushd test; ./test; popd\""
   }
   ,"engines": { "node": ">=0.8" }
 }
