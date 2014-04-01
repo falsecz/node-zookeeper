@@ -1,15 +1,14 @@
 language: node_js
 node_js:
   - "0.10"
-before_install:
-  - echo tickTime=10 > build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
-  - echo dataDir=/tmp/mrdka > build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
-  - echo clientPort=2181 > build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
-  - build/zk/tmp/zookeeper-3.4.6/bin/zkServer.sh start
 
 install:
   # ensure source install works
   - npm install --build-from-source
+  - echo tickTime=10 > build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
+  - echo dataDir=/tmp/mrdka > build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
+  - echo clientPort=2181 > build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
+  - build/zk/tmp/zookeeper-3.4.6/bin/zkServer.sh start
 
 env:
   global:
