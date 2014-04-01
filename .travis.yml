@@ -2,6 +2,13 @@ language: node_js
 node_js:
   - "0.10"
 
+before_install:
+  # figure out if we should publish
+  - PUBLISH_BINARY=false
+  # if we are building a tag then publish
+  - if [[ $TRAVIS_BRANCH == `git describe --tags --always HEAD` ]]; then PUBLISH_BINARY=true; fi;
+
+
 install:
   # ensure source install works
   - npm install --build-from-source
@@ -10,6 +17,9 @@ install:
   - echo clientPort=2181 >> build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
   - build/zk/tmp/zookeeper-3.4.6/bin/zkServer.sh start
 
+before_script:
+  # if publishing, do it
+  - if [[ $PUBLISH_BINARY == true ]]; then node-pre-gyp package publish; fi;
 
 env:
   global:
