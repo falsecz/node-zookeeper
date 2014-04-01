@@ -20,7 +20,6 @@ install:
 
 after_script:
   # if publishing, do it
-  - export PUBLISH_BINARY=true
   - if [[ $PUBLISH_BINARY == true ]]; then node-pre-gyp package publish; fi;
 
 env:
