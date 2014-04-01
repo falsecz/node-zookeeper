@@ -17,8 +17,9 @@ install:
   - echo clientPort=2181 >> build/zk/tmp/zookeeper-3.4.6/conf/zoo.cfg
   - build/zk/tmp/zookeeper-3.4.6/bin/zkServer.sh start
 
-before_script:
+after_script:
   # if publishing, do it
+  - export PUBLISH_BINARY=true
   - if [[ $PUBLISH_BINARY == true ]]; then node-pre-gyp package publish; fi;
 
 env:
