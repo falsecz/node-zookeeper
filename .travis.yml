@@ -1,6 +1,11 @@
 language: node_js
 node_js:
   - "0.10"
+
+install:
+  # ensure source install works
+  - npm install --build-from-source
+
 env:
   global:
     - secure: "fs9J6binA1FzPQ112PSFjF2HUXts8u1slqofzRLRU1dInoGopyIG7jwNOafrxuSl4Ae+RXNIqd3ySl8uq4RDBysIU4jhbN+i6WP5dce1OvoverkXGufrzGAuSPus7InJuZ9s1Tk/jGnAdgKaaoAO/fDE5/nHgifrhFlvuNLMBJU="

@@ -36,7 +36,7 @@
   ,"scripts" : {
      "Xbuild" : "node-gyp configure build",
        "install": "node-pre-gyp install --fallback-to-build"
-     ,"test" : "pushd test; ./test; popd"
+     ,"test" : "bash -c \"pushd test; ./test; popd\""
   }
   ,"engines": { "node": ">=0.8" }
 }
